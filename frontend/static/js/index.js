@@ -1,4 +1,6 @@
-import Dashboard from "./views/Dashboard";
+import Dashboard from "./views/Dashboard.js";
+import Movies from "./views/Movies.js";
+import Upcoming from "./views/Upcoming.js";
 
 //? HISTORY API
 const navigateTo = (url) => {
@@ -10,8 +12,8 @@ const navigateTo = (url) => {
 const router = async () => {
   const routes = [
     { path: "/", view: Dashboard },
-    // { path: "/posts", view: () => console.log("Viewing posts") },
-    // { path: "/settings", view: () => console.log("Viewing settings") },
+    { path: "/movies", view: Movies },
+    { path: "/upcoming", view: Upcoming },
   ];
 
   //? MAPS THROUGH EACH ROUTE AND LOGS CURRENT LOCATION
@@ -36,8 +38,6 @@ const router = async () => {
   const view = new match.route.view();
 
   document.querySelector("#root").innerHTML = await view.getHtml();
-
-  console.log(match.route.view());
 };
 
 //? REVERT TO PREVIOUS PAGE

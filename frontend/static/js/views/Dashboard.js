@@ -1,4 +1,4 @@
-import AbstractView from "./AbstractView";
+import AbstractView from "./AbstractView.js";
 
 export default class extends AbstractView {
   constructor() {
@@ -7,14 +7,11 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    return;
+    return `
+              <h1>Welcome to the Dashboard</h1>
 
-    `
-            <h1>Welcome to the Dashboard</h1>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia cupiditate numquam, at impedit aliquid ducimus accusantium repellendus deleniti repellat odit!</p>
-        
-        
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia cupiditate numquam, at impedit aliquid ducimus accusantium repellendus deleniti repellat odit!</p>
+      
         `;
   }
 }
