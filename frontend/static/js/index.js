@@ -1,3 +1,5 @@
+import Dashboard from "./views/Dashboard";
+
 //? HISTORY API
 const navigateTo = (url) => {
   history.pushState(null, null, url);
@@ -7,9 +9,9 @@ const navigateTo = (url) => {
 //? CREATES THE DISPLAY FOR THE ROUTES
 const router = async () => {
   const routes = [
-    { path: "/", view: () => console.log("Viewing dashboard") },
-    { path: "/posts", view: () => console.log("Viewing posts") },
-    { path: "/settings", view: () => console.log("Viewing settings") },
+    { path: "/", view: Dashboard },
+    // { path: "/posts", view: () => console.log("Viewing posts") },
+    // { path: "/settings", view: () => console.log("Viewing settings") },
   ];
 
   //? MAPS THROUGH EACH ROUTE AND LOGS CURRENT LOCATION
@@ -30,6 +32,10 @@ const router = async () => {
       isMatch: true,
     };
   }
+
+  const view = new match.route.view();
+
+  document.querySelector("#root").innerHTML = await view.getHtml();
 
   console.log(match.route.view());
 };
